@@ -1,0 +1,29 @@
+image: bigtruedata/sbt:0.13.15-2.11.11
+
+stages:
+  - test
+  - scalastyle
+  - publish_version
+
+test:
+  stage: test
+  script:
+    - rm -rf metastore_db
+    - sbt clean compile
+    - sbt coverage test
+    - rm -rf metastore_db
+    - sbt coverage it:test
+    - sbt coverageReport
+
+scalastyle:
+  stage: scalastyle
+  script:
+    - sbt scalastyle
+
+publish_version:
+  stage: publish_version
+  only:
+    - master
+  script:
+    - sbt doc
+    - sbt publish
