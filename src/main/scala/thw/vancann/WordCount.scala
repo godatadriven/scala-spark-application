@@ -6,8 +6,9 @@ import thw.vancann.storage._
 
 object WordCount extends SparkJob {
 
-  @Override
-  def run(spark: SparkSession, config: UsageConfig, storage: Storage): Unit = {
+  override def appName: String = "word count"
+
+  override def run(spark: SparkSession, config: UsageConfig, storage: Storage): Unit = {
     /**
       * This function only does I/O, no logic
       */
@@ -38,6 +39,4 @@ object WordCount extends SparkJob {
       .map(x => WordCountSchema(x._1, x._2._2))
   }
 
-  @Override
-  def appName: String = "word count"
 }
