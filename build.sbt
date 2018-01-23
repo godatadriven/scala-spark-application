@@ -28,3 +28,18 @@ testOptions in IntegrationTest += Tests.Argument("-oD")
 coverageExcludedPackages := "<empty>;.*storage.*"
 coverageMinimum := 70
 coverageFailOnMinimum := true
+
+// Scalastyle settings
+scalastyleFailOnWarning := false
+scalastyleFailOnError := true
+
+// Publish settings
+//publishTo := Some("Sonatype Snapshots Nexus" at "https://oss.sonatype.org/content/repositories/snapshots")
+//publishTo := {
+//  val nexus = "https://my.artifact.repo.net/"
+//  if (isSnapshot.value)
+//    Some("snapshots" at nexus + "content/repositories/snapshots")
+//  else
+//    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+//}
+//credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")

@@ -7,10 +7,15 @@ import thw.vancann.storage.{ChatLog, Storage}
 
 class WordCountTestIT extends FlatSpec {
 
-  import spark.implicits._
-
   class LocalStorage(spark: SparkSession) extends Storage {
-    override def chatLogs: Dataset[ChatLog] = spark.read.csv("logs.csv").as[ChatLog]
+    import spark.implicits._
+
+    override def chatLogs: Dataset[ChatLog] = spark
+      .read
+      .option("header", "true")
+      .option("delimiter", ";")
+      .csv("src/it/resources/logs.csv")
+      .as[ChatLog]
 
     override def writeToParquet(ds: Dataset[_], location: String): Unit = {}
   }
