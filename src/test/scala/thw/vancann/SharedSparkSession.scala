@@ -1,4 +1,4 @@
-package thw.vancann.sparktest
+package thw.vancann
 
 import java.io.File
 import java.nio.file.{Path, Paths}
