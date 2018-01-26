@@ -3,16 +3,14 @@ package thw.vancann
 import org.apache.spark.sql.SparkSession
 import thw.vancann.storage.{S3Storage, Storage}
 
-trait SparkJob {
+trait SparkJob extends App {
 
-  def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder
-      .appName(appName)
-      .enableHiveSupport()
-      .getOrCreate()
+  val spark = SparkSession.builder
+    .appName(appName)
+    .enableHiveSupport()
+    .getOrCreate()
 
-    parseAndRun(spark, args)
-  }
+  parseAndRun(spark, args)
 
   def parseAndRun(spark: SparkSession, args: Array[String]): Unit = {
     new UsageOptionParser().parse(args, UsageConfig()) match {
