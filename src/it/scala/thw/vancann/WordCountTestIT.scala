@@ -2,7 +2,7 @@ package thw.vancann
 
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.scalatest.FlatSpec
-import SharedSparkSession.spark
+import thw.vancann.test.SharedSparkSession.spark
 import thw.vancann.storage.{ChatLog, Storage}
 
 class WordCountTestIT extends FlatSpec {

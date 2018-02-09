@@ -1,7 +1,7 @@
 package thw.vancann
 
 import org.scalatest.FlatSpec
-import SharedSparkSession.spark
+import thw.vancann.test.SharedSparkSession.spark
 import thw.vancann.storage.{ChatLog, WordCountSchema}
 
 class WordCountTest extends FlatSpec {

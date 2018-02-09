@@ -1,4 +1,4 @@
-package thw.vancann
+package thw.vancann.test
 
 import java.io.File
 import java.nio.file.{Path, Paths}
@@ -28,6 +28,4 @@ object SharedSparkSession {
     session.sparkContext.setCheckpointDir(checkpointPath)
     session
   }
-
-
 }
