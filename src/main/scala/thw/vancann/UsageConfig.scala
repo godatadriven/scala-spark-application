@@ -2,7 +2,9 @@ package thw.vancann
 
 import scopt.OptionParser
 
-case class UsageConfig(date: String = "")
+trait Config
+
+case class UsageConfig(date: String = "") extends Config
 
 class UsageOptionParser
     extends OptionParser[UsageConfig]("job config") {

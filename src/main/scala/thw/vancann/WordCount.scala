@@ -1,10 +1,11 @@
 package thw.vancann
 
 import org.apache.spark.sql.{Dataset, SparkSession}
+import scopt.OptionParser
 import thw.vancann.storage._
 
 
-object WordCount extends SparkJob {
+object WordCount extends SparkJob[UsageConfig] {
 
   override def appName: String = "word count"
 
@@ -39,4 +40,7 @@ object WordCount extends SparkJob {
       .map(x => WordCountSchema(x._1, x._2._2))
   }
 
+  override def configuration: UsageConfig = UsageConfig()
+
+  override def configurationParser: OptionParser[UsageConfig] = new UsageOptionParser()
 }
